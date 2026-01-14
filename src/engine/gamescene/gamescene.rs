@@ -1,0 +1,59 @@
+use std::time::Duration;
+
+use crate::engine::Game;
+
+pub struct Scene {
+    active: bool,
+    name: String,
+}
+
+#[allow(unused)]
+impl Scene {
+    pub fn new(name: &str, active: bool) -> Self {
+        Self {
+            name: name.trim().to_string(),
+            active,
+        }
+    }
+
+    pub fn get_name(&self) -> String {
+        return self.name.clone();
+    }
+
+    pub fn is_active(&self) -> bool {
+        return self.active;
+    }
+
+    pub fn activate(&mut self) {
+        self.active = true;
+    }
+
+    pub fn deactivate(&mut self) {
+        self.active = false;
+    }
+}
+
+#[allow(unused)]
+pub trait GameScene {
+    fn base(&self) -> &Scene;
+
+    fn base_mut(&mut self) -> &mut Scene;
+
+    fn create(&mut self, game: &mut Game);
+
+    fn update(&mut self, game: &mut Game, delta_time: Duration);
+
+    fn rendering(&mut self, game: &mut Game);
+
+    fn is_active(&self) -> bool {
+        return self.base().is_active();
+    }
+
+    fn activate(&mut self) {
+        self.base_mut().activate();
+    }
+
+    fn deactivate(&mut self) {
+        self.base_mut().deactivate();
+    }
+}
