@@ -1,5 +1,7 @@
-use crate::eco::components::RangeConfig;
-use crate::eco::entities::creature::{Creature, CreatureConfig};
+use crate::eco::{
+    components::RangeConfig,
+    entities::creature::{Creature, CreatureConfig},
+};
 
 pub fn player(player_name: String) -> Creature {
     Creature::new(CreatureConfig {

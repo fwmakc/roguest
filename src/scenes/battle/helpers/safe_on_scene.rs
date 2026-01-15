@@ -1,9 +1,9 @@
-use colored::*;
+use colored::Colorize;
 use console::Key;
 
-use crate::eco::entities::creature::Creature;
-use crate::engine::inputs::InputHandler;
-use crate::scenes::battle::helpers;
+use crate::{
+    eco::entities::creature::Creature, engine::inputs::InputHandler, scenes::battle::helpers,
+};
 
 pub fn safe_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
     if player.hp.is_max() || player.hp.is_min() || player.gold.get() < 10 {

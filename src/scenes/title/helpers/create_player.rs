@@ -1,4 +1,4 @@
-use colored::*;
+use colored::Colorize;
 
 use crate::{
     eco::objects::player,

@@ -1,10 +1,11 @@
-use colored::*;
+use colored::Colorize;
 use console::Key;
 
-use crate::eco::entities::creature::Creature;
-use crate::eco::objects::goblin;
-use crate::engine::inputs::InputHandler;
-use crate::scenes::battle::helpers;
+use crate::{
+    eco::{entities::creature::Creature, objects::goblin},
+    engine::inputs::InputHandler,
+    scenes::battle::helpers,
+};
 
 pub fn fight_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
     let mut goblin = goblin();

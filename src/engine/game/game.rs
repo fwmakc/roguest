@@ -1,9 +1,12 @@
-use std::thread;
-use std::time::{Duration, Instant};
+use std::{
+    thread,
+    time::{Duration, Instant},
+};
 
-use crate::eco::entities::creature::Creature;
-use crate::engine::GameScene;
-use crate::engine::inputs::InputHandler;
+use crate::{
+    eco::entities::creature::Creature,
+    engine::{GameScene, inputs::InputHandler},
+};
 
 pub struct Game {
     pub player: Option<Creature>,

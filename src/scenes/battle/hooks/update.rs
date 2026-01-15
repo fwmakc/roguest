@@ -1,7 +1,9 @@
 use std::time::Duration;
 
-use crate::engine::{Game, Scene};
-use crate::scenes::battle::helpers::{fight_on_scene, safe_on_scene};
+use crate::{
+    engine::{Game, Scene},
+    scenes::battle::helpers::{fight_on_scene, safe_on_scene},
+};
 
 pub fn update(scene: &mut Scene, game: &mut Game, delta_time: Duration) {
     let Some(ref mut player) = game.player else {

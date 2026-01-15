@@ -1,4 +1,4 @@
-use colored::*;
+use colored::Colorize;
 use std::time::Duration;
 
 use crate::engine::{Game, Scene};

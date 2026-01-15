@@ -1,4 +1,4 @@
-use colored::*;
+use colored::Colorize;
 
 pub fn print_logo() {
     print!(

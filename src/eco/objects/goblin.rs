@@ -1,6 +1,10 @@
-use crate::eco::components::RangeConfig;
-use crate::eco::entities::creature::{Creature, CreatureConfig};
-use crate::engine::math;
+use crate::{
+    eco::{
+        components::RangeConfig,
+        entities::creature::{Creature, CreatureConfig},
+    },
+    engine::math,
+};
 
 pub fn goblin() -> Creature {
     Creature::new(CreatureConfig {

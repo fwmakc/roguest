@@ -1,6 +1,7 @@
-use crate::eco::components::StringValue;
-use crate::eco::components::{RangeConfig, RangeValue};
-use crate::engine::math;
+use crate::{
+    eco::components::{RangeConfig, RangeValue, StringValue},
+    engine::math,
+};
 
 pub struct CreatureConfig {
     pub name: String,

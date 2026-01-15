@@ -1,7 +1,9 @@
 use std::time::Duration;
 
-use crate::engine::{Game, GameScene, Scene};
-use crate::scenes::battle::hooks;
+use crate::{
+    engine::{Game, GameScene, Scene},
+    scenes::battle::hooks,
+};
 
 pub struct BattleScene {
     base: Scene,
