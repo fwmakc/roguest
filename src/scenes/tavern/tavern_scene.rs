@@ -1,24 +1,25 @@
+use colored::*;
 use std::time::Duration;
 
 use crate::{
     engine::{Game, GameScene, Scene},
-    scenes::title::title_create,
+    scenes::tavern::tavern_update,
 };
 
-pub struct TitleScene {
+pub struct TavernScene {
     base: Scene,
 }
 
-impl TitleScene {
+impl TavernScene {
     pub fn new() -> Self {
         Self {
-            base: Scene::new("title", true),
+            base: Scene::new("tavern", false),
         }
     }
 }
 
 #[allow(unused)]
-impl GameScene for TitleScene {
+impl GameScene for TavernScene {
     fn base(&self) -> &Scene {
         &self.base
     }
@@ -28,10 +29,12 @@ impl GameScene for TitleScene {
     }
 
     fn create(&mut self, game: &mut Game) {
-        title_create(&mut self.base, game);
+        println!("{}", "Вы находитесь в таверне!".yellow());
     }
 
-    fn update(&mut self, game: &mut Game, delta_time: Duration) {}
+    fn update(&mut self, game: &mut Game, delta_time: Duration) {
+        tavern_update(&mut self.base, game, delta_time);
+    }
 
     fn rendering(&mut self, game: &mut Game) {}
 }

@@ -10,7 +10,7 @@ pub struct BattleScene {
 impl BattleScene {
     pub fn new() -> Self {
         Self {
-            base: Scene::new("battle", true),
+            base: Scene::new("battle", false),
         }
     }
 }
