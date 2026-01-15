@@ -27,7 +27,7 @@ impl GameScene for TownScene {
         &mut self.base
     }
 
-    fn create(&mut self, game: &mut Game) {
+    fn mounted(&mut self, game: &mut Game) {
         println!("{}", "Вы находитесь в городе!".yellow());
     }
 

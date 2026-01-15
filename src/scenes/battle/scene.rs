@@ -24,7 +24,7 @@ impl GameScene for BattleScene {
         &mut self.base
     }
 
-    fn create(&mut self, game: &mut Game) {}
+    fn mounted(&mut self, game: &mut Game) {}
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
         hooks::update(&mut self.base, game, delta_time);

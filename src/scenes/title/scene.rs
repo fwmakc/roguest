@@ -26,8 +26,8 @@ impl GameScene for TitleScene {
         &mut self.base
     }
 
-    fn create(&mut self, game: &mut Game) {
-        hooks::create(&mut self.base, game);
+    fn mounted(&mut self, game: &mut Game) {
+        hooks::mounted(&mut self.base, game);
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {}

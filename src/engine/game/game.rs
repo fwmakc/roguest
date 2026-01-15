@@ -40,7 +40,7 @@ impl Game {
 
     // Метод для добавления сцены в список
     pub fn add_scene<S: GameScene + 'static>(&mut self, mut scene: S) {
-        scene.create(self);
+        scene.mounted(self);
         self.scenes.push(Box::new(scene));
     }
 
@@ -72,7 +72,7 @@ impl Game {
                 let mut scene = self.scenes.remove(i);
 
                 // Если сцена активна — запускаем логику
-                if scene.is_active() {
+                if scene.base().is_active() {
                     scene.update(self, delta_time);
                 }
 
@@ -82,7 +82,7 @@ impl Game {
                 }
 
                 // Если сцена еще активна — запускаем рендеринг
-                if scene.is_active() {
+                if scene.base().is_active() {
                     scene.rendering(self);
                 }
 
@@ -100,7 +100,7 @@ impl Game {
             }
 
             // Если все сцены стали неактивны, можно тоже завершить цикл
-            if self.scenes.iter().all(|s| !s.is_active()) {
+            if self.scenes.iter().all(|s| !s.base().is_active()) {
                 break;
             }
         }

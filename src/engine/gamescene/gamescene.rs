@@ -37,21 +37,9 @@ pub trait GameScene {
 
     fn base_mut(&mut self) -> &mut Scene;
 
-    fn create(&mut self, game: &mut Game);
+    fn mounted(&mut self, game: &mut Game);
 
     fn update(&mut self, game: &mut Game, delta_time: Duration);
 
     fn rendering(&mut self, game: &mut Game);
-
-    fn is_active(&self) -> bool {
-        return self.base().is_active();
-    }
-
-    fn activate(&mut self) {
-        self.base_mut().activate();
-    }
-
-    fn deactivate(&mut self) {
-        self.base_mut().deactivate();
-    }
 }

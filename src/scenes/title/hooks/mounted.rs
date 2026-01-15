@@ -3,7 +3,7 @@ use crate::{
     scenes::title::helpers,
 };
 
-pub fn create(scene: &mut Scene, game: &mut Game) {
+pub fn mounted(scene: &mut Scene, game: &mut Game) {
     helpers::print_logo();
     helpers::create_player(game);
 
