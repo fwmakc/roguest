@@ -7,7 +7,6 @@ pub struct Scene {
     name: String,
 }
 
-#[allow(unused)]
 impl Scene {
     pub fn new(name: &str, active: bool) -> Self {
         Self {
@@ -33,7 +32,6 @@ impl Scene {
     }
 }
 
-#[allow(unused)]
 pub trait GameScene {
     fn base(&self) -> &Scene;
 

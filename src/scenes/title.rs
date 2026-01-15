@@ -1,6 +1,5 @@
 pub mod helpers;
-mod title_create;
-mod title_scene;
+pub mod hooks;
+mod scene;
 
-pub use title_create::title_create;
-pub use title_scene::TitleScene;
+pub use scene::TitleScene;

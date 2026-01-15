@@ -3,7 +3,7 @@ use std::time::Duration;
 
 use crate::{
     engine::{Game, GameScene, Scene},
-    scenes::tavern::tavern_update,
+    scenes::tavern::hooks,
 };
 
 pub struct TavernScene {
@@ -18,7 +18,6 @@ impl TavernScene {
     }
 }
 
-#[allow(unused)]
 impl GameScene for TavernScene {
     fn base(&self) -> &Scene {
         &self.base
@@ -33,7 +32,7 @@ impl GameScene for TavernScene {
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
-        tavern_update(&mut self.base, game, delta_time);
+        hooks::update(&mut self.base, game, delta_time);
     }
 
     fn rendering(&mut self, game: &mut Game) {}

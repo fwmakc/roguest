@@ -20,7 +20,6 @@ where
     }
 }
 
-#[allow(unused)]
 pub struct RangeValue<T> {
     pub value: T,
     pub min: T,
@@ -28,7 +27,6 @@ pub struct RangeValue<T> {
     pub default: T,
 }
 
-#[allow(unused)]
 impl<T> RangeValue<T>
 where
     T: Num + Bounded + PartialOrd + Copy + Display,

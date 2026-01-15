@@ -2,7 +2,7 @@ use std::time::Duration;
 
 use crate::{
     engine::{Game, GameScene, Scene},
-    scenes::title::title_create,
+    scenes::title::hooks,
 };
 
 pub struct TitleScene {
@@ -17,7 +17,6 @@ impl TitleScene {
     }
 }
 
-#[allow(unused)]
 impl GameScene for TitleScene {
     fn base(&self) -> &Scene {
         &self.base
@@ -28,7 +27,7 @@ impl GameScene for TitleScene {
     }
 
     fn create(&mut self, game: &mut Game) {
-        title_create(&mut self.base, game);
+        hooks::create(&mut self.base, game);
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {}

@@ -1,6 +1,5 @@
 use console::{Key, Term};
 
-#[allow(unused)]
 pub fn press_key<Resolve, Reject>(
     target_keys: &[Key],
     mut callback_resolve: Resolve,

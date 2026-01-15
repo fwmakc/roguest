@@ -16,7 +16,6 @@ pub struct Game {
     worked: bool,
 }
 
-#[allow(unused)]
 impl Game {
     pub fn new() -> Self {
         Self {

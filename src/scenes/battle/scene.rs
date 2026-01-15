@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use crate::engine::{Game, GameScene, Scene};
-use crate::scenes::battle::battle_update;
+use crate::scenes::battle::hooks;
 
 pub struct BattleScene {
     base: Scene,
@@ -15,7 +15,6 @@ impl BattleScene {
     }
 }
 
-#[allow(unused)]
 impl GameScene for BattleScene {
     fn base(&self) -> &Scene {
         &self.base
@@ -28,7 +27,7 @@ impl GameScene for BattleScene {
     fn create(&mut self, game: &mut Game) {}
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
-        battle_update(&mut self.base, game, delta_time);
+        hooks::update(&mut self.base, game, delta_time);
     }
 
     fn rendering(&mut self, game: &mut Game) {}
