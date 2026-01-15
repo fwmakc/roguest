@@ -6,6 +6,9 @@ edition = "2024"
 description = "The roguelike rust game"
 license = "MIT"
 
+[lints.rust]
+unused = "allow"
+
 [dependencies]
 colored = "3.0.0"
 console = "0.16.2"
