@@ -3,7 +3,7 @@ use crate::eco::entities::creature::{Creature, CreatureConfig};
 use crate::engine::math;
 
 pub fn goblin() -> Creature {
-    return Creature::new(CreatureConfig {
+    Creature::new(CreatureConfig {
         name: "Гоблин".to_string(),
         level: RangeConfig {
             value: math::random(1, 3),
@@ -23,5 +23,5 @@ pub fn goblin() -> Creature {
             max: 15,
             ..RangeConfig::default()
         },
-    });
+    })
 }

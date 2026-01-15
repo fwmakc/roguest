@@ -52,5 +52,5 @@ pub fn fight_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
         }
     }
 
-    return true;
+    true
 }

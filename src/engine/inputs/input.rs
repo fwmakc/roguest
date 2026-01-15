@@ -6,5 +6,5 @@ pub fn input(label: &str) -> String {
 
     io::stdin().read_line(&mut input).expect("Ошибка чтения");
 
-    return input.trim().to_string();
+    input.trim().to_string()
 }

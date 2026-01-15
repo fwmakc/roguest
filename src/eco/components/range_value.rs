@@ -41,19 +41,19 @@ where
 
         instance.clamp();
 
-        return instance;
+        instance
     }
 
     pub fn get(&self) -> T {
-        return self.value;
+        self.value
     }
 
     pub fn max(&self) -> T {
-        return self.max;
+        self.max
     }
 
     pub fn min(&self) -> T {
-        return self.min;
+        self.min
     }
 
     pub fn add(&mut self, value: T) {
@@ -106,10 +106,10 @@ where
     }
 
     pub fn is_max(&self) -> bool {
-        return self.value >= self.max;
+        self.value >= self.max
     }
 
     pub fn is_min(&self) -> bool {
-        return self.value <= self.min;
+        self.value <= self.min
     }
 }

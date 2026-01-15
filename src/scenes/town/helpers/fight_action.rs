@@ -47,5 +47,5 @@ pub fn fight_action(player: &mut Creature, enemy: &mut Creature) -> bool {
         player.gold.get().to_string().green(),
     );
 
-    return true;
+    true
 }

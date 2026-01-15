@@ -8,5 +8,5 @@ where
 {
     let mut rng = rand::rng();
 
-    return rng.random_range(min..=max);
+    rng.random_range(min..=max)
 }

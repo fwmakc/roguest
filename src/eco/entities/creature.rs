@@ -60,6 +60,6 @@ impl Creature {
         let koeff: f32 = 1.0 + self.level.get() as f32 / self.level.max() as f32;
         let calculated_attack: u16 = (attack as f32 * koeff) as u16;
 
-        return calculated_attack;
+        calculated_attack
     }
 }

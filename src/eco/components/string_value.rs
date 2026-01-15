@@ -8,6 +8,6 @@ impl StringValue {
     }
 
     pub fn get(&self) -> String {
-        return self.value.clone();
+        self.value.clone()
     }
 }

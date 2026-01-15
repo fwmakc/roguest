@@ -43,5 +43,5 @@ pub fn safe_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
         }
     }
 
-    return true;
+    true
 }

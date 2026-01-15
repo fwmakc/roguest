@@ -16,11 +16,11 @@ impl Scene {
     }
 
     pub fn get_name(&self) -> String {
-        return self.name.clone();
+        self.name.clone()
     }
 
     pub fn is_active(&self) -> bool {
-        return self.active;
+        self.active
     }
 
     pub fn activate(&mut self) {
