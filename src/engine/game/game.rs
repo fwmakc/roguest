@@ -5,7 +5,7 @@ use std::{
 
 use crate::{
     eco::entities::creature::Creature,
-    engine::{GameScene, inputs::InputHandler},
+    engine::{GameScene, gameloop, inputs::InputHandler},
 };
 
 pub struct Game {
@@ -14,9 +14,9 @@ pub struct Game {
     pub input: InputHandler,
 
     pub target_fps: f64,
-    last_frame: Instant,
+    pub last_frame: Instant,
 
-    worked: bool,
+    pub worked: bool,
 }
 
 impl Game {
@@ -58,55 +58,7 @@ impl Game {
 
     // Тот самый gameloop, переделанный в метод структуры
     pub fn run(&mut self) {
-        let target_duration = Duration::from_secs_f64(1.0 / self.target_fps);
-
-        self.last_frame = Instant::now();
-
-        while self.worked {
-            let start_time = Instant::now(); // Время начала кадра
-            let delta_time = start_time.duration_since(self.last_frame);
-            self.last_frame = start_time;
-
-            // Временно забираем сцены, чтобы Game не был "заблокирован" заимствованием
-            // let mut scenes = std::mem::take(&mut self.scenes);
-
-            for i in 0..self.scenes.len() {
-                // for scene in scenes.iter_mut() {
-                let mut scene = self.scenes.remove(i);
-
-                // Если сцена активна — запускаем логику
-                if scene.base().is_active() {
-                    scene.update(self, delta_time);
-                }
-
-                // Если игра остановлена, прекращаем работу всего движка
-                if !self.worked {
-                    break;
-                }
-
-                // Если сцена еще активна — запускаем рендеринг
-                if scene.base().is_active() {
-                    scene.rendering(self);
-                }
-
-                // Возвращаем сцену на её законное место
-                self.scenes.insert(i, scene);
-            }
-
-            // self.scenes = scenes;
-
-            // Контроль FPS: Задержка (Sleep)
-            let frame_duration = start_time.elapsed(); // Сколько времени ушло на логику
-            if frame_duration < target_duration {
-                // Спим разницу между целевым временем и затраченным
-                thread::sleep(target_duration - frame_duration);
-            }
-
-            // Если все сцены стали неактивны, можно тоже завершить цикл
-            if self.scenes.iter().all(|s| !s.base().is_active()) {
-                break;
-            }
-        }
+        gameloop(self);
     }
 
     pub fn stop(&mut self) {
