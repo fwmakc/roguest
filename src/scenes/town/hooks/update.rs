@@ -1,9 +1,12 @@
 use colored::Colorize;
 use std::time::Duration;
 
-use crate::engine::{Game, Scene};
+use crate::{
+    engine::{Game, Scene},
+    scenes::TownScene,
+};
 
-pub fn update(scene: &mut Scene, game: &mut Game, delta_time: Duration) {
+pub fn update(scene: &mut TownScene, game: &mut Game, delta_time: Duration) {
     let Some(ref mut player) = game.player else {
         scene.deactivate();
         game.stop();

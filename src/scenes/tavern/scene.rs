@@ -2,38 +2,50 @@ use colored::Colorize;
 use std::time::Duration;
 
 use crate::{
-    engine::{Game, GameScene, Scene},
+    engine::{Game, Scene, SceneActive, SceneName},
     scenes::tavern::hooks,
 };
 
 pub struct TavernScene {
-    base: Scene,
+    active: bool,
+    name: String,
 }
 
 impl TavernScene {
     pub fn new() -> Self {
         Self {
-            base: Scene::new("tavern", false),
+            active: false,
+            name: "TavernScene".to_string(),
         }
     }
 }
 
-impl GameScene for TavernScene {
-    fn base(&self) -> &Scene {
-        &self.base
+impl Scene for TavernScene {
+    fn name(&self) -> &str {
+        &self.name
     }
 
-    fn base_mut(&mut self) -> &mut Scene {
-        &mut self.base
+    fn is_active(&self) -> bool {
+        self.active
+    }
+
+    fn activate(&mut self) {
+        self.active = true;
+    }
+
+    fn deactivate(&mut self) {
+        self.active = false;
     }
 
     fn mounted(&mut self, game: &mut Game) {
-        println!("{}", "Вы находитесь в таверне!".yellow());
+        hooks::mounted(self, game);
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
-        hooks::update(&mut self.base, game, delta_time);
+        hooks::update(self, game, delta_time);
     }
 
-    fn rendering(&mut self, game: &mut Game) {}
+    fn draw(&mut self, game: &mut Game, delta_time: Duration) {
+        hooks::draw(self, game, delta_time);
+    }
 }

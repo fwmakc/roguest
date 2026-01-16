@@ -3,10 +3,7 @@ use std::{
     time::{Duration, Instant},
 };
 
-use crate::{
-    eco::entities::creature::Creature,
-    engine::{Game, GameScene, inputs::InputHandler},
-};
+use crate::engine::Game;
 
 // Тот самый gameloop, переделанный в метод структуры
 pub fn gameloop(game: &mut Game) {
@@ -27,7 +24,7 @@ pub fn gameloop(game: &mut Game) {
             let mut scene = game.scenes.remove(i);
 
             // Если сцена активна — запускаем логику
-            if scene.base().is_active() {
+            if scene.is_active() {
                 scene.update(game, delta_time);
             }
 
@@ -37,8 +34,8 @@ pub fn gameloop(game: &mut Game) {
             }
 
             // Если сцена еще активна — запускаем рендеринг
-            if scene.base().is_active() {
-                scene.rendering(game);
+            if scene.is_active() {
+                scene.draw(game, delta_time);
             }
 
             // Возвращаем сцену на её законное место
@@ -60,7 +57,7 @@ pub fn gameloop(game: &mut Game) {
         }
 
         // Если все сцены стали неактивны, можно тоже завершить цикл
-        if game.scenes.iter().all(|s| !s.base().is_active()) {
+        if game.scenes.iter().all(|s| !s.is_active()) {
             break;
         }
     }

@@ -1,16 +1,13 @@
-use std::{
-    thread,
-    time::{Duration, Instant},
-};
+use std::{thread, time::Instant};
 
 use crate::{
     eco::entities::creature::Creature,
-    engine::{GameScene, gameloop, inputs::InputHandler},
+    engine::{gameloop, inputs::InputHandler, scene::Scene},
 };
 
 pub struct Game {
     pub player: Option<Creature>,
-    pub scenes: Vec<Box<dyn GameScene>>,
+    pub scenes: Vec<Box<dyn Scene>>,
     pub input: InputHandler,
 
     pub target_fps: f64,
@@ -42,18 +39,19 @@ impl Game {
     }
 
     // Метод для добавления сцены в список
-    pub fn add_scene<S: GameScene + 'static>(&mut self, mut scene: S) {
+    pub fn add_scene<S: Scene + 'static>(&mut self, mut scene: S) {
         scene.mounted(self);
         self.scenes.push(Box::new(scene));
     }
 
     // Поиск сцены, например для активации или деактивации из другой сцены
-    // if let Some(scene) = game.find_scene("scene_name") {
-    //   println!("{}", scene.base().get_name());
-    //   scene.activate();
-    // }
-    pub fn find_scene(&mut self, name: &str) -> Option<&mut Box<dyn GameScene>> {
-        self.scenes.iter_mut().find(|s| s.base().get_name() == name)
+    pub fn find_scene(&mut self, name: &str) -> Option<&mut Box<dyn Scene>> {
+        self.scenes.iter_mut().find(|s| s.name() == name)
+    }
+
+    // Удаляет сцену по имени
+    pub fn remove_scene(&mut self, name: &str) {
+        self.scenes.retain(|s| s.name() != name);
     }
 
     // Тот самый gameloop, переделанный в метод структуры

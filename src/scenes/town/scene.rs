@@ -2,29 +2,39 @@ use colored::Colorize;
 use std::time::Duration;
 
 use crate::{
-    engine::{Game, GameScene, Scene},
+    engine::{Game, Scene, SceneActive, SceneName},
     scenes::town::hooks,
 };
 
 pub struct TownScene {
-    base: Scene,
+    active: bool,
+    name: String,
 }
 
 impl TownScene {
     pub fn new() -> Self {
         Self {
-            base: Scene::new("town", true),
+            active: false,
+            name: "TownScene".to_string(),
         }
     }
 }
 
-impl GameScene for TownScene {
-    fn base(&self) -> &Scene {
-        &self.base
+impl Scene for TownScene {
+    fn name(&self) -> &str {
+        &self.name
     }
 
-    fn base_mut(&mut self) -> &mut Scene {
-        &mut self.base
+    fn is_active(&self) -> bool {
+        self.active
+    }
+
+    fn activate(&mut self) {
+        self.active = true;
+    }
+
+    fn deactivate(&mut self) {
+        self.active = false;
     }
 
     fn mounted(&mut self, game: &mut Game) {
@@ -32,8 +42,8 @@ impl GameScene for TownScene {
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
-        hooks::update(&mut self.base, game, delta_time);
+        hooks::update(self, game, delta_time);
     }
 
-    fn rendering(&mut self, game: &mut Game) {}
+    fn draw(&mut self, game: &mut Game, delta_time: Duration) {}
 }
