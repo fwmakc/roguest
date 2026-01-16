@@ -1,8 +1,8 @@
 use colored::Colorize;
 
 use crate::{
-    eco::objects::player,
     engine::{Game, inputs},
+    etv::entities::player,
 };
 
 pub fn create_player(game: &mut Game) {

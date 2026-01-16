@@ -1,8 +1,8 @@
 use std::{thread, time::Instant};
 
 use crate::{
-    eco::entities::creature::Creature,
     engine::{gameloop, inputs::InputHandler, scene::Scene},
+    etv::types::Creature,
 };
 
 pub struct Game {

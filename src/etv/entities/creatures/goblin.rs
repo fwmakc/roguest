@@ -1,9 +1,9 @@
 use crate::{
-    eco::{
-        components::RangeConfig,
-        entities::creature::{Creature, CreatureConfig},
-    },
     engine::math,
+    etv::{
+        types::{Creature, CreatureConfig},
+        values::RangeConfig,
+    },
 };
 
 pub fn goblin() -> Creature {

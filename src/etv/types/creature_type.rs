@@ -1,6 +1,6 @@
 use crate::{
-    eco::components::{RangeConfig, RangeValue, StringValue},
     engine::math,
+    etv::values::{RangeConfig, RangeValue, StringValue},
 };
 
 pub struct CreatureConfig {

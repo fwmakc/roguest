@@ -1,6 +1,6 @@
 use std::io;
 
-mod eco;
+mod etv;
 
 mod engine;
 use engine::Game;

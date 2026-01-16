@@ -1,6 +1,6 @@
 use colored::Colorize;
 
-use crate::eco::entities::creature::Creature;
+use crate::etv::types::Creature;
 
 pub fn safe_action(player: &mut Creature) {
     while !player.hp.is_max() && player.gold.get() >= 10 {

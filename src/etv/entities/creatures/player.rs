@@ -1,6 +1,6 @@
-use crate::eco::{
-    components::RangeConfig,
-    entities::creature::{Creature, CreatureConfig},
+use crate::etv::{
+    types::{Creature, CreatureConfig},
+    values::RangeConfig,
 };
 
 pub fn player(player_name: String) -> Creature {
