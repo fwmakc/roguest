@@ -46,12 +46,16 @@ impl Game {
 
     // Поиск сцены, например для активации или деактивации из другой сцены
     pub fn find_scene(&mut self, name: &str) -> Option<&mut Box<dyn Scene>> {
-        self.scenes.iter_mut().find(|s| s.name() == name)
+        self.scenes.iter_mut().find(|scene| scene.name() == name)
     }
 
     // Удаляет сцену по имени
     pub fn remove_scene(&mut self, name: &str) {
-        self.scenes.retain(|s| s.name() != name);
+        let index = self.scenes.iter().position(|s| s.name() == name);
+        if let Some(i) = index {
+            let mut scene = self.scenes.remove(i);
+            scene.unmounted(self);
+        }
     }
 
     // Тот самый gameloop, переделанный в метод структуры

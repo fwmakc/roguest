@@ -1,4 +1,3 @@
-use colored::Colorize;
 use std::time::Duration;
 
 use crate::{
@@ -31,14 +30,20 @@ impl Scene for TavernScene {
 
     fn activate(&mut self) {
         self.active = true;
+        hooks::activated(self);
     }
 
     fn deactivate(&mut self) {
         self.active = false;
+        hooks::deactivated(self);
     }
 
     fn mounted(&mut self, game: &mut Game) {
         hooks::mounted(self, game);
+    }
+
+    fn unmounted(&mut self, game: &mut Game) {
+        hooks::unmounted(self, game);
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {

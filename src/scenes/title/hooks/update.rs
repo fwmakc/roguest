@@ -2,12 +2,11 @@ use std::time::Duration;
 
 use crate::{
     engine::{Game, Scene},
-    scenes::TavernScene,
+    scenes::TitleScene,
 };
 
-pub fn update(scene: &mut TavernScene, game: &mut Game, delta_time: Duration) {
+pub fn update(scene: &mut TitleScene, game: &mut Game, delta_time: Duration) {
     let Some(ref mut player) = game.player else {
-        scene.deactivate();
         game.stop();
         return;
     };

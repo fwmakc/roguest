@@ -13,6 +13,8 @@ pub trait Scene {
 
     fn mounted(&mut self, game: &mut Game);
 
+    fn unmounted(&mut self, game: &mut Game);
+
     fn update(&mut self, game: &mut Game, delta_time: Duration);
 
     fn draw(&mut self, game: &mut Game, delta_time: Duration);

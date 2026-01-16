@@ -30,17 +30,27 @@ impl Scene for TitleScene {
 
     fn activate(&mut self) {
         self.active = true;
+        hooks::activated(self);
     }
 
     fn deactivate(&mut self) {
         self.active = false;
+        hooks::deactivated(self);
     }
 
     fn mounted(&mut self, game: &mut Game) {
         hooks::mounted(self, game);
     }
 
-    fn update(&mut self, game: &mut Game, delta_time: Duration) {}
+    fn unmounted(&mut self, game: &mut Game) {
+        hooks::unmounted(self, game);
+    }
 
-    fn draw(&mut self, game: &mut Game, delta_time: Duration) {}
+    fn update(&mut self, game: &mut Game, delta_time: Duration) {
+        hooks::update(self, game, delta_time);
+    }
+
+    fn draw(&mut self, game: &mut Game, delta_time: Duration) {
+        hooks::draw(self, game, delta_time);
+    }
 }

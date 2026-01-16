@@ -2,7 +2,7 @@ use std::time::Duration;
 
 use crate::{
     engine::{Game, Scene},
-    scenes::TavernScene,
+    scenes::TitleScene,
 };
 
-pub fn draw(scene: &mut TavernScene, game: &mut Game, delta_time: Duration) {}
+pub fn draw(scene: &mut TitleScene, game: &mut Game, delta_time: Duration) {}

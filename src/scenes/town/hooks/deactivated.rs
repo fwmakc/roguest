@@ -3,4 +3,4 @@ use crate::{
     scenes::TownScene,
 };
 
-pub fn mounted(scene: &mut TownScene, game: &mut Game) {}
+pub fn deactivated(scene: &mut TownScene) {}

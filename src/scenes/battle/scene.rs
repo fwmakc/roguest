@@ -6,41 +6,51 @@ use crate::{
 };
 
 pub struct BattleScene {
-    active: bool,
-    name: String,
+    active: SceneActive,
+    name: SceneName,
 }
 
 impl BattleScene {
     pub fn new() -> Self {
         Self {
-            active: false,
-            name: "BattleScene".to_string(),
+            active: SceneActive::new(false),
+            name: SceneName::new("BattleScene"),
         }
     }
 }
 
 impl Scene for BattleScene {
     fn name(&self) -> &str {
-        &self.name
+        self.name.get()
     }
 
     fn is_active(&self) -> bool {
-        self.active
+        self.active.is_active()
     }
 
     fn activate(&mut self) {
-        self.active = true;
+        self.active.activate();
+        hooks::activated(self);
     }
 
     fn deactivate(&mut self) {
-        self.active = false;
+        self.active.deactivate();
+        hooks::deactivated(self);
     }
 
-    fn mounted(&mut self, game: &mut Game) {}
+    fn mounted(&mut self, game: &mut Game) {
+        hooks::mounted(self, game);
+    }
+
+    fn unmounted(&mut self, game: &mut Game) {
+        hooks::unmounted(self, game);
+    }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
         hooks::update(self, game, delta_time);
     }
 
-    fn draw(&mut self, game: &mut Game, delta_time: Duration) {}
+    fn draw(&mut self, game: &mut Game, delta_time: Duration) {
+        hooks::draw(self, game, delta_time);
+    }
 }

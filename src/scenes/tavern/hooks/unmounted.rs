@@ -3,4 +3,4 @@ use crate::{
     scenes::TavernScene,
 };
 
-pub fn mounted(scene: &mut TavernScene, game: &mut Game) {}
+pub fn unmounted(scene: &mut TavernScene, game: &mut Game) {}

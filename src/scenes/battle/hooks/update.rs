@@ -10,7 +10,6 @@ use crate::{
 
 pub fn update(scene: &mut BattleScene, game: &mut Game, delta_time: Duration) {
     let Some(ref mut player) = game.player else {
-        scene.deactivate();
         game.stop();
         return;
     };

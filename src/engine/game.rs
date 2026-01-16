@@ -1,5 +1,5 @@
 mod game;
-mod game_loop;
+mod gameloop;
 
 pub use game::Game;
-pub use game_loop::gameloop;
+pub use gameloop::gameloop;
