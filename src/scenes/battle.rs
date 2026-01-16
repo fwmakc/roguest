@@ -1,5 +1,5 @@
-pub mod helpers;
-pub mod hooks;
-mod scene;
+pub mod battle_helpers;
+pub mod battle_hooks;
+mod battle_scene;
 
-pub use scene::BattleScene;
+pub use battle_scene::BattleScene;

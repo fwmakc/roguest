@@ -2,7 +2,7 @@ use std::time::Duration;
 
 use crate::{
     engine::{Game, Scene, SceneActive, SceneName},
-    scenes::battle::hooks,
+    scenes::battle::battle_hooks,
 };
 
 pub struct BattleScene {
@@ -30,27 +30,27 @@ impl Scene for BattleScene {
 
     fn activate(&mut self) {
         self.active.activate();
-        hooks::activated(self);
+        battle_hooks::activated(self);
     }
 
     fn deactivate(&mut self) {
         self.active.deactivate();
-        hooks::deactivated(self);
+        battle_hooks::deactivated(self);
     }
 
     fn mounted(&mut self, game: &mut Game) {
-        hooks::mounted(self, game);
+        battle_hooks::mounted(self, game);
     }
 
     fn unmounted(&mut self, game: &mut Game) {
-        hooks::unmounted(self, game);
+        battle_hooks::unmounted(self, game);
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
-        hooks::update(self, game, delta_time);
+        battle_hooks::update(self, game, delta_time);
     }
 
     fn draw(&mut self, game: &mut Game, delta_time: Duration) {
-        hooks::draw(self, game, delta_time);
+        battle_hooks::draw(self, game, delta_time);
     }
 }

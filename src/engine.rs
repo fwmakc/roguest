@@ -1,5 +1,4 @@
 mod game;
-pub mod inputs;
 pub mod math;
 mod scene;
 

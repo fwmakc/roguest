@@ -1,6 +1,6 @@
 use crate::{
     engine::{Game, Scene},
-    scenes::{TitleScene, title::helpers},
+    scenes::TitleScene,
 };
 
 pub fn deactivated(scene: &mut TitleScene) {}

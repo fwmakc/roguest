@@ -1,9 +1,6 @@
 use colored::Colorize;
 
-use crate::{
-    engine::{Game, inputs},
-    etv::entities::player,
-};
+use crate::{engine::Game, etv::entities::player, interface::inputs};
 
 pub fn create_player(game: &mut Game) {
     let player_name = inputs::input("Введите свое имя:");

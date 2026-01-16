@@ -5,6 +5,7 @@ mod etv;
 mod engine;
 use engine::Game;
 
+mod interface;
 mod scenes;
 
 // TODO: сделать...

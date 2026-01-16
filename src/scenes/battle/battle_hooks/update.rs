@@ -4,7 +4,7 @@ use crate::{
     engine::{Game, Scene},
     scenes::{
         BattleScene,
-        battle::helpers::{fight_on_scene, safe_on_scene},
+        battle::battle_helpers::{fight_on_scene, safe_on_scene},
     },
 };
 

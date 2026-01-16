@@ -1,3 +1,3 @@
 mod creatures;
 
-pub use creatures::{goblin::goblin, player::player};
+pub use creatures::{goblin_creature::goblin, player_creature::player};

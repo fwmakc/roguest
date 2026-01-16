@@ -1,7 +1,9 @@
 use colored::Colorize;
 use console::Key;
 
-use crate::{engine::inputs::InputHandler, etv::types::Creature, scenes::battle::helpers};
+use crate::{
+    etv::types::Creature, interface::inputs::InputHandler, scenes::battle::battle_helpers,
+};
 
 pub fn safe_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
     if player.hp.is_max() || player.hp.is_min() || player.gold.get() < 10 {
@@ -24,7 +26,7 @@ pub fn safe_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
 
     if let Some(key) = input.capture() {
         if key == Key::Char('s') || key == Key::Char('S') {
-            helpers::safe_action(player);
+            battle_helpers::safe_action(player);
             input.clear_history();
         } else {
             println!("{}", "Вы пропустили лечение".yellow());

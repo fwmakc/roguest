@@ -1,8 +1,9 @@
 use std::{thread, time::Instant};
 
 use crate::{
-    engine::{gameloop, inputs::InputHandler, scene::Scene},
+    engine::{gameloop, scene::Scene},
     etv::types::Creature,
+    interface::inputs::InputHandler,
 };
 
 pub struct Game {

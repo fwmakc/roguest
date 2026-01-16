@@ -1,5 +1,5 @@
-pub mod helpers;
-pub mod hooks;
-mod scene;
+pub mod title_helpers;
+pub mod title_hooks;
+mod title_scene;
 
-pub use scene::TitleScene;
+pub use title_scene::TitleScene;

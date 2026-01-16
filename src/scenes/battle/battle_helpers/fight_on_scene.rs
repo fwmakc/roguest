@@ -2,9 +2,9 @@ use colored::Colorize;
 use console::Key;
 
 use crate::{
-    engine::inputs::InputHandler,
     etv::{entities::goblin, types::Creature},
-    scenes::battle::helpers,
+    interface::inputs::InputHandler,
+    scenes::battle::battle_helpers,
 };
 
 pub fn fight_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
@@ -31,7 +31,7 @@ pub fn fight_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {
 
     if let Some(key) = input.capture() {
         if key == Key::Char('a') || key == Key::Char('A') {
-            let next = helpers::fight_action(player, &mut goblin);
+            let next = battle_helpers::fight_action(player, &mut goblin);
 
             input.clear_history();
 

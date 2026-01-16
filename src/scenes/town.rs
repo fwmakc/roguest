@@ -1,5 +1,5 @@
-pub mod helpers;
-pub mod hooks;
-mod scene;
+pub mod town_helpers;
+pub mod town_hooks;
+mod town_scene;
 
-pub use scene::TownScene;
+pub use town_scene::TownScene;

@@ -2,24 +2,24 @@ use std::time::Duration;
 
 use crate::{
     engine::{Game, Scene, SceneActive, SceneName},
-    scenes::tavern::hooks,
+    scenes::title::title_hooks,
 };
 
-pub struct TavernScene {
+pub struct TitleScene {
     active: SceneActive,
     name: SceneName,
 }
 
-impl TavernScene {
+impl TitleScene {
     pub fn new() -> Self {
         Self {
-            active: SceneActive::new(false),
-            name: SceneName::new("TavernScene"),
+            active: SceneActive::new(true),
+            name: SceneName::new("TitleScene"),
         }
     }
 }
 
-impl Scene for TavernScene {
+impl Scene for TitleScene {
     fn name(&self) -> &str {
         self.name.get()
     }
@@ -30,27 +30,27 @@ impl Scene for TavernScene {
 
     fn activate(&mut self) {
         self.active.activate();
-        hooks::activated(self);
+        title_hooks::activated(self);
     }
 
     fn deactivate(&mut self) {
         self.active.deactivate();
-        hooks::deactivated(self);
+        title_hooks::deactivated(self);
     }
 
     fn mounted(&mut self, game: &mut Game) {
-        hooks::mounted(self, game);
+        title_hooks::mounted(self, game);
     }
 
     fn unmounted(&mut self, game: &mut Game) {
-        hooks::unmounted(self, game);
+        title_hooks::unmounted(self, game);
     }
 
     fn update(&mut self, game: &mut Game, delta_time: Duration) {
-        hooks::update(self, game, delta_time);
+        title_hooks::update(self, game, delta_time);
     }
 
     fn draw(&mut self, game: &mut Game, delta_time: Duration) {
-        hooks::draw(self, game, delta_time);
+        title_hooks::draw(self, game, delta_time);
     }
 }
