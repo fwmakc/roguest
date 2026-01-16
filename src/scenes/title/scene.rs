@@ -6,35 +6,35 @@ use crate::{
 };
 
 pub struct TitleScene {
-    active: bool,
-    name: String,
+    active: SceneActive,
+    name: SceneName,
 }
 
 impl TitleScene {
     pub fn new() -> Self {
         Self {
-            active: true,
-            name: "TitleScene".to_string(),
+            active: SceneActive::new(true),
+            name: SceneName::new("TitleScene"),
         }
     }
 }
 
 impl Scene for TitleScene {
     fn name(&self) -> &str {
-        &self.name
+        self.name.get()
     }
 
     fn is_active(&self) -> bool {
-        self.active
+        self.active.is_active()
     }
 
     fn activate(&mut self) {
-        self.active = true;
+        self.active.activate();
         hooks::activated(self);
     }
 
     fn deactivate(&mut self) {
-        self.active = false;
+        self.active.deactivate();
         hooks::deactivated(self);
     }
 

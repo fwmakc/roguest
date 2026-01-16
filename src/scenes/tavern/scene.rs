@@ -6,35 +6,35 @@ use crate::{
 };
 
 pub struct TavernScene {
-    active: bool,
-    name: String,
+    active: SceneActive,
+    name: SceneName,
 }
 
 impl TavernScene {
     pub fn new() -> Self {
         Self {
-            active: false,
-            name: "TavernScene".to_string(),
+            active: SceneActive::new(false),
+            name: SceneName::new("TavernScene"),
         }
     }
 }
 
 impl Scene for TavernScene {
     fn name(&self) -> &str {
-        &self.name
+        self.name.get()
     }
 
     fn is_active(&self) -> bool {
-        self.active
+        self.active.is_active()
     }
 
     fn activate(&mut self) {
-        self.active = true;
+        self.active.activate();
         hooks::activated(self);
     }
 
     fn deactivate(&mut self) {
-        self.active = false;
+        self.active.deactivate();
         hooks::deactivated(self);
     }
 
