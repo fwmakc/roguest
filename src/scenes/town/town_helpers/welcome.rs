@@ -1,15 +1,8 @@
 use colored::Colorize;
 use console::Key;
 
-use crate::interface::inputs::InputHandler;
+use crate::interface::prints;
 
 pub fn welcome() {
-    let mut input = InputHandler::new(5);
-
-    print!(
-        "{}\n{}\n{}\n",
-        "|------------------------------|".yellow(),
-        "|   ДОБРО ПОЖАЛОВАТЬ В ГОРОД   |".yellow(),
-        "|------------------------------|".yellow(),
-    );
+    prints::scroll("Добро пожаловать в город");
 }
