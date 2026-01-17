@@ -4,7 +4,7 @@ use crate::{
     engine::{Game, Scene},
     scenes::{
         TownScene,
-        town::town_helpers::{select_in_scene, welcome},
+        town::town_helpers::{select_in_town, welcome},
     },
 };
 
@@ -14,7 +14,7 @@ pub fn update(scene: &mut TownScene, game: &mut Game, delta_time: Duration) {
         return;
     };
 
-    select_in_scene(game);
+    select_in_town(scene, game);
 
     let dt = delta_time.as_secs_f32();
     println!("Delta time: {:.4}s (FPS: {:.1})", dt, 1.0 / dt);

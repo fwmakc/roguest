@@ -4,10 +4,13 @@ use console::Key;
 use crate::{
     engine::Game,
     interface::{inputs::select, prints},
-    scenes::town::town_helpers::{selected_forest, selected_look_around, selected_tavern},
+    scenes::{
+        TownScene,
+        town::town_helpers::{selected_forest, selected_look_around, selected_tavern},
+    },
 };
 
-pub fn select_in_scene(game: &mut Game) {
+pub fn select_in_town(scene: &mut TownScene, game: &mut Game) {
     match select(vec![
         "Осмотреться",
         "Пойти в таверну",
@@ -16,8 +19,8 @@ pub fn select_in_scene(game: &mut Game) {
         "Выйти",
     ]) {
         0 => selected_look_around(),
-        1 => selected_tavern(game),
-        2 => selected_forest(game),
+        1 => selected_tavern(scene, game),
+        2 => selected_forest(scene, game),
         4 => game.stop(),
         _ => prints::message("Вы стоите на месте."),
     }

@@ -21,11 +21,14 @@ fn main() -> io::Result<()> {
     let mut game = Game::new();
 
     game.set_fps(60.0);
+    game.set_scenes_len(10);
+
+    game.add_scene(scenes::TownScene::new());
+    game.add_scene(scenes::TavernScene::new());
+    // game.add_scene(scenes::BattleScene::new());
 
     game.add_scene(scenes::TitleScene::new());
-    // game.add_scene(scenes::TownScene::new());
-    // game.add_scene(scenes::TavernScene::new());
-    // game.add_scene(scenes::BattleScene::new());
+
     game.run();
 
     prints::message("Игра завершена");
