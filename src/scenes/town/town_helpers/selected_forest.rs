@@ -1,5 +1,5 @@
-use crate::engine::Game;
+use crate::{engine::Game, interface::prints};
 
 pub fn selected_forest(game: &mut Game) {
-    println!("Лес встречает вас тишиной...");
+    prints::message("Лес встречает вас тишиной...");
 }

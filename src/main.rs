@@ -5,6 +5,8 @@ mod etv;
 mod engine;
 use engine::Game;
 
+use crate::interface::prints;
+
 mod interface;
 mod scenes;
 
@@ -26,7 +28,7 @@ fn main() -> io::Result<()> {
     // game.add_scene(scenes::BattleScene::new());
     game.run();
 
-    println!("Игра завершена");
+    prints::message("Игра завершена");
 
     Ok(())
 }

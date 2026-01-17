@@ -1,8 +1,9 @@
 use crate::{
     engine::{Game, Scene},
+    interface::prints,
     scenes::TavernScene,
 };
 
 pub fn activated(scene: &mut TavernScene) {
-    println!("{}", "Вы находитесь в таверне!");
+    prints::message("Вы находитесь в таверне!");
 }

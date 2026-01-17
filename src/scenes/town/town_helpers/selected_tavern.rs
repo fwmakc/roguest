@@ -1,5 +1,5 @@
-use crate::engine::Game;
+use crate::{engine::Game, interface::prints};
 
 pub fn selected_tavern(game: &mut Game) {
-    println!("Вы заходите в шумную таверну...");
+    prints::message("Вы заходите в шумную таверну...");
 }
