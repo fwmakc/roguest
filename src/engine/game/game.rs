@@ -54,6 +54,20 @@ impl Game {
         self.scenes.iter_mut().find(|scene| scene.name() == name)
     }
 
+    // Поиск сцены и ее активация
+    pub fn activate_scene(&mut self, name: &str) {
+        if let Some(scene) = self.find_scene(name) {
+            scene.activate();
+        }
+    }
+
+    // Поиск сцены и ее активация
+    pub fn deactivate_scene(&mut self, name: &str) {
+        if let Some(scene) = self.find_scene(name) {
+            scene.deactivate();
+        }
+    }
+
     // Удаляет сцену по имени
     pub fn remove_scene(&mut self, name: &str) {
         let index = self.scenes.iter().position(|s| s.name() == name);

@@ -8,8 +8,5 @@ pub fn mounted(scene: &mut TitleScene, game: &mut Game) {
     title_helpers::create_player(game);
 
     scene.deactivate();
-
-    if let Some(ref mut town_scene) = game.find_scene("TownScene") {
-        town_scene.activate();
-    }
+    game.activate_scene("TownScene");
 }
