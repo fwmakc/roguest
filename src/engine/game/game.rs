@@ -35,6 +35,10 @@ impl Game {
         self.player = Some(player);
     }
 
+    pub fn set_scenes_len(&mut self, len: usize) {
+        self.scenes = Vec::with_capacity(len);
+    }
+
     pub fn set_fps(&mut self, fps: f64) {
         self.target_fps = fps;
     }
