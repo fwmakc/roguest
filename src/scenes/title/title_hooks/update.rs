@@ -10,7 +10,4 @@ pub fn update(scene: &mut TitleScene, game: &mut Game, delta_time: Duration) {
         game.stop();
         return;
     };
-
-    let dt = delta_time.as_secs_f32();
-    println!("Delta time: {:.4}s (FPS: {:.1})", dt, 1.0 / dt);
 }

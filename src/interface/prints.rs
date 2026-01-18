@@ -1,10 +1,12 @@
 mod error;
+mod fps;
 mod info;
 mod message;
 mod scroll;
 mod wait_any_key;
 
 pub use error::error;
+pub use fps::fps;
 pub use info::info;
 pub use message::message;
 pub use scroll::scroll;

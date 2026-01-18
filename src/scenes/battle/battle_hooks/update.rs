@@ -14,9 +14,6 @@ pub fn update(scene: &mut BattleScene, game: &mut Game, delta_time: Duration) {
         return;
     };
 
-    // let dt = delta_time.as_secs_f32();
-    // println!("Delta time: {:.4}s (FPS: {:.1})", dt, 1.0 / dt);
-
     if !fight_on_scene(&mut game.input, player) {
         game.stop();
         return;
