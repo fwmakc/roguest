@@ -5,5 +5,6 @@ use crate::{
 };
 
 pub fn activated(scene: &mut TavernScene) {
-    prints::scroll("Вы заходите в шумную таверну");
+    prints::scroll("Таверна «Танцующий пончик»");
+    prints::message("Вы заходите в шумную таверну");
 }

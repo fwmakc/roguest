@@ -2,8 +2,8 @@ use colored::Colorize;
 use console::Key;
 
 use crate::{
-    etv::{entities::goblin, types::Creature},
     interface::inputs::InputHandler,
+    objects::{entities::goblin, types::Creature},
     scenes::battle::battle_helpers,
 };
 

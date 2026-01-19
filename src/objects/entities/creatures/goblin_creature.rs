@@ -1,6 +1,6 @@
 use crate::{
     engine::math,
-    etv::{
+    objects::{
         types::{Creature, CreatureConfig},
         values::RangeConfig,
     },
@@ -27,5 +27,6 @@ pub fn goblin() -> Creature {
             max: 15,
             ..RangeConfig::default()
         },
+        ..Default::default()
     })
 }

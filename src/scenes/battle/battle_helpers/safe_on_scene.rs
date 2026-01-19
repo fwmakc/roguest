@@ -2,7 +2,7 @@ use colored::Colorize;
 use console::Key;
 
 use crate::{
-    etv::types::Creature, interface::inputs::InputHandler, scenes::battle::battle_helpers,
+    interface::inputs::InputHandler, objects::types::Creature, scenes::battle::battle_helpers,
 };
 
 pub fn safe_on_scene(input: &mut InputHandler, player: &mut Creature) -> bool {

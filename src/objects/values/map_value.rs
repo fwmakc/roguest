@@ -1,7 +1,5 @@
 use std::collections::HashMap;
 
-use rand::distr::Map;
-
 pub struct MapValue<T> {
     pub variants: HashMap<String, T>,
 }
@@ -19,6 +17,10 @@ where
     }
 
     pub fn add(&mut self, key: String, value: T) {
+        self.variants.insert(key, value);
+    }
+
+    pub fn set(&mut self, key: String, value: T) {
         self.variants.insert(key, value);
     }
 }

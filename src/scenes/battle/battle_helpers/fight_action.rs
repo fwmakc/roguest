@@ -1,6 +1,6 @@
 use colored::Colorize;
 
-use crate::etv::types::Creature;
+use crate::objects::types::Creature;
 
 pub fn fight_action(player: &mut Creature, enemy: &mut Creature) -> bool {
     while !player.hp.is_min() {

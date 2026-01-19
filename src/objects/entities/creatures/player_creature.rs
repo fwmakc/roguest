@@ -1,4 +1,4 @@
-use crate::etv::{
+use crate::objects::{
     types::{Creature, CreatureConfig},
     values::RangeConfig,
 };

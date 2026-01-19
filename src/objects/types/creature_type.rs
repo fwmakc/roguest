@@ -1,6 +1,8 @@
+use std::iter::Enumerate;
+
 use crate::{
     engine::math,
-    etv::values::{RangeConfig, RangeValue, StringValue},
+    objects::values::{RangeConfig, RangeValue, StateValue, StringValue},
 };
 
 pub struct CreatureConfig {
@@ -9,6 +11,7 @@ pub struct CreatureConfig {
     pub gold: RangeConfig<u16>,
     pub hp: RangeConfig<u16>,
     pub attack: RangeConfig<u16>,
+    pub wstate: String,
 }
 
 impl Default for CreatureConfig {
@@ -33,6 +36,7 @@ impl Default for CreatureConfig {
                 value: 10,
                 ..RangeConfig::default()
             },
+            wstate: "stay".to_string(),
         }
     }
 }
@@ -43,6 +47,7 @@ pub struct Creature {
     pub gold: RangeValue<u16>,
     pub hp: RangeValue<u16>,
     pub attack: RangeValue<u16>,
+    pub wstate: StateValue,
 }
 
 impl Creature {
@@ -53,6 +58,7 @@ impl Creature {
             gold: RangeValue::new(config.gold),
             hp: RangeValue::new(config.hp),
             attack: RangeValue::new(config.attack),
+            wstate: StateValue::new(vec!["stay", "left", "right"], config.wstate),
         }
     }
 

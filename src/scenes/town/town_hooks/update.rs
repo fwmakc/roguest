@@ -17,5 +17,9 @@ pub fn update(scene: &mut TownScene, game: &mut Game, delta_time: Duration) {
         return;
     };
 
+    if let Some(ref mut player) = game.player {
+        println!("{}", player.wstate.get());
+    };
+
     select_in_town(scene, game);
 }

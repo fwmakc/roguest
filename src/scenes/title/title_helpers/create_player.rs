@@ -2,8 +2,8 @@ use colored::Colorize;
 
 use crate::{
     engine::Game,
-    etv::entities::player,
     interface::{inputs, prints},
+    objects::entities::player,
 };
 
 pub fn create_player(game: &mut Game) {
