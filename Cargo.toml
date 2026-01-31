@@ -18,3 +18,11 @@ rand = "0.9.2"
 
 [dev-dependencies]
 pretty_assertions = "1.4.1"
+
+[[example]]
+name = "file_struct_example"
+path = "examples/file_struct_example.rs"
+
+[[example]]
+name = "directory_struct_example"
+path = "examples/directory_struct_example.rs"
