@@ -28,14 +28,14 @@ impl Scene for BattleScene {
         self.active.is_active()
     }
 
-    fn activate(&mut self) {
+    fn activate(&mut self, game: &mut Game) {
         self.active.activate();
-        battle_hooks::activated(self);
+        battle_hooks::activated(self, game);
     }
 
-    fn deactivate(&mut self) {
+    fn deactivate(&mut self, game: &mut Game) {
         self.active.deactivate();
-        battle_hooks::deactivated(self);
+        battle_hooks::deactivated(self, game);
     }
 
     fn mounted(&mut self, game: &mut Game) {

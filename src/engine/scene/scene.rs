@@ -7,9 +7,9 @@ pub trait Scene {
 
     fn is_active(&self) -> bool;
 
-    fn activate(&mut self);
+    fn activate(&mut self, game: &mut Game);
 
-    fn deactivate(&mut self);
+    fn deactivate(&mut self, game: &mut Game);
 
     fn mounted(&mut self, game: &mut Game);
 

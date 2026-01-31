@@ -28,14 +28,14 @@ impl Scene for TitleScene {
         self.active.is_active()
     }
 
-    fn activate(&mut self) {
+    fn activate(&mut self, game: &mut Game) {
         self.active.activate();
-        title_hooks::activated(self);
+        title_hooks::activated(self, game);
     }
 
-    fn deactivate(&mut self) {
+    fn deactivate(&mut self, game: &mut Game) {
         self.active.deactivate();
-        title_hooks::deactivated(self);
+        title_hooks::deactivated(self, game);
     }
 
     fn mounted(&mut self, game: &mut Game) {

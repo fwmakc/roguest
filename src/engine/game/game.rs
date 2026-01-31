@@ -56,15 +56,33 @@ impl Game {
 
     // Поиск сцены и ее активация
     pub fn activate_scene(&mut self, name: &str) {
-        if let Some(scene) = self.find_scene(name) {
-            scene.activate();
+        // Для решения проблемы двойного заимствования, мы можем временно извлечь сцену из вектора
+        let mut temp_scenes = Vec::new();
+        std::mem::swap(&mut temp_scenes, &mut self.scenes);
+
+        let mut scene_found = false;
+        for mut scene in temp_scenes.into_iter() {
+            if scene.name() == name {
+                scene.activate(self);
+                scene_found = true;
+            }
+            self.scenes.push(scene);
         }
     }
 
-    // Поиск сцены и ее активация
+    // Поиск сцены и ее деактивация
     pub fn deactivate_scene(&mut self, name: &str) {
-        if let Some(scene) = self.find_scene(name) {
-            scene.deactivate();
+        // Для решения проблемы двойного заимствования, мы можем временно извлечь сцену из вектора
+        let mut temp_scenes = Vec::new();
+        std::mem::swap(&mut temp_scenes, &mut self.scenes);
+
+        let mut scene_found = false;
+        for mut scene in temp_scenes.into_iter() {
+            if scene.name() == name {
+                scene.deactivate(self);
+                scene_found = true;
+            }
+            self.scenes.push(scene);
         }
     }
 

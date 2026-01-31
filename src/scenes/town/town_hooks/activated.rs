@@ -3,6 +3,6 @@ use crate::{
     scenes::{TownScene, town::town_helpers::welcome},
 };
 
-pub fn activated(scene: &mut TownScene) {
+pub fn activated(scene: &mut TownScene, game: &mut Game) {
     welcome();
 }

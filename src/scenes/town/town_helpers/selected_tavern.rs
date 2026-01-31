@@ -5,6 +5,6 @@ use crate::{
 };
 
 pub fn selected_tavern(scene: &mut TownScene, game: &mut Game) {
-    scene.deactivate();
+    scene.deactivate(game);
     game.activate_scene("TavernScene");
 }

@@ -28,14 +28,14 @@ impl Scene for TownScene {
         self.active.is_active()
     }
 
-    fn activate(&mut self) {
+    fn activate(&mut self, game: &mut Game) {
         self.active.activate();
-        town_hooks::activated(self);
+        town_hooks::activated(self, game);
     }
 
-    fn deactivate(&mut self) {
+    fn deactivate(&mut self, game: &mut Game) {
         self.active.deactivate();
-        town_hooks::deactivated(self);
+        town_hooks::deactivated(self, game);
     }
 
     fn mounted(&mut self, game: &mut Game) {

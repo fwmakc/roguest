@@ -3,4 +3,4 @@ use crate::{
     scenes::TitleScene,
 };
 
-pub fn activated(scene: &mut TitleScene) {}
+pub fn activated(scene: &mut TitleScene, game: &mut Game) {}
