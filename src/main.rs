@@ -7,6 +7,7 @@ use engine::Game;
 
 use crate::interface::prints;
 
+mod graphics;
 mod interface;
 mod scenes;
 
@@ -16,6 +17,11 @@ mod scenes;
 // - нормальный графический вывод в окошко винды
 
 fn main() -> io::Result<()> {
+    // Инициализация графической системы (в будущем)
+    // let graphics_window = graphics::window::GraphicsWindow::new("Roguest").await;
+    // let window = graphics_window.window;
+    // let renderer = graphics::renderer::Renderer::new(window).await;
+
     let mut game = Game::new();
 
     game.set_fps(60.0);
